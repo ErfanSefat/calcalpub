@@ -1,10 +1,12 @@
 from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import get_user_model, login, logout, authenticate
+from django.http import HttpResponse
+from .models import student, event
+from django.contrib import messages
+from django.template import loader
+from json import dumps 
 
-class logedinuser:
-    fname = None
-    lname = None
-    username = None
-signedin = logedinuser()
 def home(request):
     return render(request, 'home.html')
 
@@ -15,17 +17,20 @@ def signOut(request):
     return render(request, "home.html")
 
 def addevent(request):
-    return render(request, "addevent.html")
+    if request.method == 'POST':
+        input_year = request.POST.get('input_year')
+        input_month = request.POST.get('input_month')
+        input_day = request.POST.get('input_day')
+        input_text = request.POST.get('text')
+        input_time = request.POST.get('time')
+        makeevent = event(input_username = myuserobj, input_year=input_year, input_month=input_month, input_day=input_day, input_text=input_text, input_time=input_time)
+        makeevent.save()
+    userdata = dumps(userpass)
+    return render(request, 'addevent.html', {'userdata': userdata})
 
 
 def addschedule(request):
     return render(request, "addschedule.html")
-
-from django.shortcuts import render, redirect
-from django.contrib.auth import get_user_model, login, logout, authenticate
-from django.http import HttpResponse
-from .models import student
-from django.contrib import messages
 
 def signup(request):    
     if request.method == 'POST':
@@ -55,20 +60,10 @@ def signin(request):
         if user.password != password:
             messages.info(request, '.این نام‌کاربری با این رمزعبور همخوانی ندارد')
         else:
-            signedin.fname = user.fname
-            signedin.lname = user.lname
-            signedin.username = user.username
-            print(signedin)
-            print("Yyooyoyooyoy")
-            return redirect('http://127.0.0.1:8000/success')
-        # user = authenticate(request, username=username, password=password)
-        # print(user)
-
-        # if user is not None:
-        #     login(request, user)
-        #     print("Authentication successful!")
-        # else:
-        #     print("Authentication failed.")
-
+            global myuserobj
+            myuserobj = username
+            global userpass
+            userpass = dict(fname=user.fname, lname=user.lname, username=user.username)
+            userdata = dumps(userpass)
+            return render(request, 'home.html', {'userdata': userdata})
     return render(request, 'signin.html')
-

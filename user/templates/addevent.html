@@ -10,20 +10,27 @@
 <body>
     <div class="title">اضافه کردن رویدادهای روز مشخص</div>
     <div class="register-form">
-        <form>
+        <form method="post" action="{% url 'addevent' %}">
+            {% csrf_token %}
             <div class="select_days">
                 <div>انتخاب روز</div>
                 <hr>
-                <div class="input_date">
+                <div class="input_date" >
                     <input type="number" id="input_year" name="input_year" placeholder="سال"><br>
                     <input type="number" id="input_month" name="input_month" placeholder="ماه"><br>
                     <input type="number" id="input_day" name="input_day" placeholder="روز"><br>
                 </div>
             </div>
-            <input type="text" id="StuNum" name="StuNum" placeholder="محتوای رویداد" required><br>
+            <input type="text" id="text" name="text" placeholder="محتوای رویداد" required><br>
             <input type="time" id="time" name="time"><br>
             <input type="submit" class="submit-btn" value="ثبت">
         </form>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        var userdata = JSON.parse("{{userdata|escapejs}}");
+        console.log(userdata);
+        });
+    </script>
 </body>
 </html>

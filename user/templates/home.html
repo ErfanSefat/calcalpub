@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="login_info">
-        <div class="login_btn">وارد شوید</div>
+        <div class="login_btn" id="login_btn" onclick="location.href = '/signin'"></div>
     </div>
     <div class="Container">
         <div class="CalendarBody">
@@ -54,5 +54,14 @@
         </form>
     </div> 
     <script src="{% static 'DateCalendar.js' %}"></script>
+    <script>
+        const login_btn = document.getElementById("login_btn");
+        login_btn.innerText = ".وارد شوید";
+        document.addEventListener("DOMContentLoaded", function () {
+        var data = JSON.parse("{{userdata|escapejs}}");
+        console.log(data);
+        login_btn.innerText = "." + data.fname + " خوش آمدی" ;
+        });
+    </script>
 </body>
 </html>
