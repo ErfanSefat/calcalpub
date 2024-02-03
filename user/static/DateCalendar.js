@@ -111,6 +111,7 @@ function LoadCalendar(yy, mm, dd){
                 CalCell.style.color = "rgba(0,0,0,0)";
             }
             if(day == dd){
+                CalCell.setAttribute("id","istoday");
                 CalCell.style.backgroundColor = "#F2F4F3";
                 CalCell.style.color = "#21333B";
             }

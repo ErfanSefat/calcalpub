@@ -6,9 +6,17 @@ from .models import student, event
 from django.contrib import messages
 from django.template import loader
 from json import dumps 
+from django.core import serializers
+
 
 def home(request):
-    return render(request, 'home.html')
+    try:
+        usersevent = event.objects.filter(input_username=myuserobj)
+        events = serializers.serialize('json', usersevent)
+        userdata = dumps(userpass)
+        return render(request, 'home.html', {'userdata': userdata, 'events': events})
+    except:
+        return redirect("http://127.0.0.1:8000")
 
 def success(request):
     return render(request, 'success.html')
@@ -48,6 +56,8 @@ def signup(request):
     return render(request, 'signup.html')
 
 def signin(request):
+    global myuserobj
+    myuserobj = None
     if request.method == 'POST':
         username = request.POST.get("StuNum")
         password = request.POST.get("password")
@@ -60,10 +70,8 @@ def signin(request):
         if user.password != password:
             messages.info(request, '.این نام‌کاربری با این رمزعبور همخوانی ندارد')
         else:
-            global myuserobj
             myuserobj = username
             global userpass
             userpass = dict(fname=user.fname, lname=user.lname, username=user.username)
-            userdata = dumps(userpass)
-            return render(request, 'home.html', {'userdata': userdata})
+            return redirect('http://127.0.0.1:8000/home')
     return render(request, 'signin.html')

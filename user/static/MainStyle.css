@@ -131,8 +131,10 @@ td{
     margin-top: 77px;
     width: 490px;
     text-align: center;
+    max-height: 340px;
+    overflow-y:auto;
 }
-.payam{
+#payam{
     direction: rtl;
 }
 #ChangingFormParent{
@@ -181,17 +183,56 @@ td{
     color: #F2F4F3;
     border: 1px solid #F2F4F3;
 }
+.event, .todaysevent{
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 10px , 0px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px;
+    padding: 2px;
+    border-radius: 10px;
+}
+.todaysevent{
+    background-color: #F2F4F3;
+    color: #141F23;
+}
+.eventtext{
+    padding:10px;
+    width: 70%;
+    text-align: right;
+    overflow-x: auto;
+}
+.eventdetails{
+    padding-left: 10px;
+}
+.eventdatetime{
+    font-family: FaNum;
+    font-size: 12px;
+    text-align: left;
+}
 @media only screen and (max-device-width: 1000px){
     .Container{
         flex-direction: column;
         align-items: center;
     }
-    .EventShow{margin-top: 5px;}
+    .EventShow{
+        margin-top: 5px;
+        max-height: none;
+        overflow-y:none;
+    }
     .sprtr{width: 470px;display: block;}
     .button_container{display: block;}
     .AddEvent{
         width: 100%;
     }
+    .eventtext{padding: 0px; padding-top: 5px;}
+    .eventdetails{padding:0px;}
+    .event, .todaysevent{padding: 10px; margin: none;}
+}
+#istoday{
+    background-color: #f4f2f2;
+    color: #21333B;
 }
 @media only screen and (max-device-width: 550px){
     .CalendarBody, .EventShow{

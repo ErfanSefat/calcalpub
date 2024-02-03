@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خانه</title>
     <link rel="stylesheet" href="{% static 'MainStyle.css' %}">
-
+    <link rel="icon" href="{% static 'photos/icon.svg' %}"/>
 </head>
 <body>
     <div class="login_info">
-        <div class="login_btn" id="login_btn" onclick="location.href = '/signin'"></div>
+        <div class="login_btn" id="login_btn" onclick="location.href = '/'"></div>
     </div>
     <div class="Container">
         <div class="CalendarBody">
@@ -41,8 +41,15 @@
             </div>
         </div>
         <div class="sprtr"></div>
-        <div class="EventShow">
-            <div class="payam">هیچ رویدادی نیست.</div>
+        <div class="EventShow" id="EventShow">
+            <div id="payam">هیچ رویدادی نیست.</div>
+            <!-- <div class="event">
+                <div class="eventtext">امتحان مهندسی نرم افزار</div>
+                <div class="eventdetails">
+                    <div class="eventdatetime">1381/09/88</div>
+                    <div class="eventdatetime">23:59</div>
+                </div>
+            </div> -->
         </div>
     </div>
     <div id="ChangingFormParent">
@@ -58,10 +65,41 @@
         const login_btn = document.getElementById("login_btn");
         login_btn.innerText = ".وارد شوید";
         document.addEventListener("DOMContentLoaded", function () {
-        var data = JSON.parse("{{userdata|escapejs}}");
-        console.log(data);
-        login_btn.innerText = "." + data.fname + " خوش آمدی" ;
+            var data = JSON.parse("{{userdata|escapejs}}");
+            console.log(data);
+            login_btn.innerText = "." + data.fname + " خوش آمدی" ;
+            var events = JSON.parse("{{events|escapejs}}");
+            if(Object.keys(events).length != 0)
+            {
+                document.getElementById("payam").style.display = "none";
+            }
+            events.forEach(element => {
+                const eventbox = document.getElementById("EventShow");
+                const event = document.createElement("div");
+                const eventtext = document.createElement("div");
+                const eventdetails = document.createElement("div");            
+                const eventdate = document.createElement("div");
+                const eventtime = document.createElement("div");
+                eventdate.innerHTML = element.fields.input_year + "/" + element.fields.input_month + "/" + element.fields.input_day;
+                eventdate.className = "eventdatetime";
+                eventtime.innerHTML = element.fields.input_time;
+                eventtime.className = "eventdatetime";
+                eventtext.innerHTML = element.fields.input_text;
+                eventtext.className = "eventtext";
+                eventdetails.appendChild(eventdate);
+                eventdetails.appendChild(eventtime);
+                eventdetails.className = "eventdetails";
+                event.appendChild(eventtext);
+                event.appendChild(eventdetails);
+                event.className = "event";
+                if(element.fields.input_year == TodayDate[0] && element.fields.input_month == TodayDate[1] && element.fields.input_day == TodayDate[2]){
+                    event.className = "todaysevent";
+                }
+                eventbox.appendChild(event);
+            });
+            console.log(TodayDate);
         });
+
     </script>
 </body>
 </html>
