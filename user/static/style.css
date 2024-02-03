@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200;400;600;800&display=swap');
+*{
+    font-family: 'Vazirmatn';
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box; 
+}
+body{
+    background-image: url("./Photos/‌Background\ Pattern.svg");
+    background-color: #21333B;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    color: #F2F4F3;
+}
+.register-form{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+.register-form div:nth-child(1){
+    margin-top: 80px;
+    font-weight: 200;
+    font-size: 18px;
+}
+.register-form div:nth-child(2){
+    font-weight: 600;
+    font-size: 26px;
+    margin-bottom: 50px;
+}
+form{
+    width: 100%;
+    max-width: 400px;
+}
+input{
+    background: #AA937F;
+    border-radius: 10px;
+    height: 50px;
+    padding-right: 18px;
+    border: 0;
+    text-align: right;
+    color: #21333B;
+    width: 100%;
+    margin-bottom: 10px;
+}
+input::placeholder{color: #21333B;}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.submit-btn{
+    background-color: #141F23;
+    color: #F2F4F3;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.submit-btn:hover{
+    background-color: #F2F4F3;
+    color: #141F23;
+}
+.AccQs span:nth-child(2):hover{
+    cursor: pointer;
+    color: #AA937F;
+}

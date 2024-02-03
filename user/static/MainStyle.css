@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200;400;600;800&display=swap');
+@font-face { font-family: FaNum; src: url('./IRANSansFaNum.ttf'); } 
+*{
+    font-family: 'Vazirmatn';
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box; 
+}
+body{
+    background-image: url("./Photos/‌Background\ Pattern.svg");
+    background-color: #21333B;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    color: #F2F4F3;
+}
+.Container{
+    display: flex;
+    justify-content: center;
+}
+.login_info{
+    margin: 20px 0px;
+}
+.login_btn{
+    border: 1px solid #F2F4F3;
+    border-radius: 10px;
+    font-size: 10px;
+    padding: 3px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    max-width: 490px;
+
+}
+#CurrentYear{font-family: FaNum;}
+.YearMonth{
+    padding: 20px;
+    font-size: 20px;
+    display: inline-flex;
+    justify-content: space-between;
+}
+#ChangeMonth{
+    display: inline;
+    border: 1px solid #F2F4F3;
+    border-radius: 10px;
+    font-size: 10px;
+    padding: 3px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.CalendarBody{
+    margin: 5px;
+    max-width: 490px;
+    display:flex;
+    flex-direction: column;
+}
+.DayName{
+    text-align: center;
+    background: #AA937F;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+    padding: 5px 0px;
+}
+.DayName span{
+    font-size: 15px;
+    font-weight: 200;
+    width: 70px;
+}
+table{
+    background: #141F23;
+    border-radius: 10px;
+}
+td{
+    text-align: center;
+    border: 0;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-family: FaNum;
+    border-radius: 10px;
+    padding: 10px;
+}
+#CalBody td:hover{
+    background-color: #21333B;
+}
+.button_container{
+    display: flex;
+    justify-content: space-between;
+}
+.AddEvent{
+    margin-top: 10px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #141F23;
+    color: #F2F4F3;
+    text-align: center;
+    border: none;
+    width: 49%;
+}
+.AddEvent div{
+    display: flex;
+    justify-content: center;
+}
+.AddEvent img{
+    margin-left: 10px;
+}
+.AddEvent:hover{
+    background-color: #F2F4F3;
+    color: #141F23;
+    fill: #141F23;
+}
+.sprtr{
+    display: none;
+    height: 2px;
+    width: 500px;
+    background: #f2f4f378;
+    margin: 10px 0px;
+    border-radius: 10px;
+}
+.EventShow{
+    padding: 10px;
+    background-color: #141F23;
+    border-radius: 10px;
+    margin: 5px;
+    display:flex;
+    flex-direction: column;
+    margin-top: 77px;
+    width: 490px;
+    text-align: center;
+}
+.payam{
+    direction: rtl;
+}
+#ChangingFormParent{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: #ffffff2b;
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.ChangingForm{
+    background-color: #141F23;
+    padding: 20px;
+    border-radius: 10px;
+    width: 280px;
+}
+.ChangingForm input{
+    width: 100%;
+    width: 100%;
+    border-radius: 10px;
+    text-align: right;
+    padding-top: 3px;
+    padding-right: 10px;
+    height: 40px;
+}
+.ChangingForm div:nth-of-type(1){
+    background-color: #AA937F;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 3px;
+    height: 32px;
+    border: none;
+}
+.ChangingForm div:nth-of-type(2){
+    background-color: #141F23;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 3px;
+    height: 32px;
+    color: #F2F4F3;
+    border: 1px solid #F2F4F3;
+}
+@media only screen and (max-device-width: 1000px){
+    .Container{
+        flex-direction: column;
+        align-items: center;
+    }
+    .EventShow{margin-top: 5px;}
+    .sprtr{width: 470px;display: block;}
+    .button_container{display: block;}
+    .AddEvent{
+        width: 100%;
+    }
+}
+@media only screen and (max-device-width: 550px){
+    .CalendarBody, .EventShow{
+        width: 350px;
+    }
+    .DayName span{
+        width: 50px;
+        font-size: 12px;
+    }
+    .sprtr{width: 330px}
+}
+@media only screen and (max-device-width: 375px){
+    .CalendarBody, .EventShow{width: 280px;}
+    .DayName span{
+        width: 40px;
+        font-size: 10px;
+    }
+    td{
+        font-size: 12px;
+        padding: 7px 5px;
+    }
+    .sprtr{width: 260px;}
+}
+

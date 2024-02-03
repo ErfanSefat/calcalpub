@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200;400;600;800&display=swap');
+*{
+    font-family: 'Vazirmatn';
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box; 
+}
+body{
+    background-image: url("./Photos/‌Background\ Pattern.svg");
+    background-color: #21333B;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    color: #F2F4F3;
+}
+.title{
+    padding: 28px 0px;
+    font-size: 18px;
+    margin: auto;
+}
+.register-form{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+form{
+    width: 100%;
+    max-width: 400px;
+}
+input[type=time],[type=submit],[type=text]{
+    background: #AA937F;
+    border-radius: 10px;
+    height: 50px;
+    padding-right: 18px;
+    border: 0;
+    text-align: right;
+    color: #21333B;
+    width: 100%;
+    margin-bottom: 10px;
+}
+input[type=number]{
+    background: #AA937F;
+    border-radius: 10px;
+    height: 50px;
+    padding-right: 18px;
+    border: 0;
+    text-align: right;
+    color: #21333B;
+    width: 33%;
+    margin-bottom: 10px;
+}
+input::placeholder{color: #21333B;}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.submit-btn{
+    background-color: #141F23;
+    color: #F2F4F3;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.submit-btn:hover{
+    background-color: #F2F4F3;
+    color: #141F23;
+}
+.checkboxes{
+    height: 10px;
+    display: inline;
+}
+.days_checkbox{
+    width: 90px;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+.select_days{
+    margin-bottom: 20px;
+}
+.select_days div:nth-child(1){
+    text-align: center;
+}
+.input_date{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}

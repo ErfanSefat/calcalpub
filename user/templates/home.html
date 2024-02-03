@@ -1,0 +1,58 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خانه</title>
+    <link rel="stylesheet" href="{% static 'MainStyle.css' %}">
+
+</head>
+<body>
+    <div class="login_info">
+        <div class="login_btn">وارد شوید</div>
+    </div>
+    <div class="Container">
+        <div class="CalendarBody">
+            <div class="YearMonth">
+                <span id="CurrentYear"></span>
+                <span>
+                    <span id="CurrentMonth"></span>
+                    <div id="ChangeMonth" onclick="ShowChangingForm()">تغییر ماه و سال</div>
+                </span>
+                
+            </div>
+            <div class="DayName">
+                <span>شنبه</span>
+                <span>یک‌شنبه‌</span>
+                <span>دوشنبه</span>
+                <span>سه‌شنبه</span>
+                <span>چهارشنبه</span>
+                <span>پنج‌شنبه</span>
+                <span>جمعه</span>
+            </div>
+            <table>
+                <tbody id="CalBody">
+                </tbody>
+            </table>
+            <div class="button_container">
+                <button class="AddEvent" onclick="location.href = '/addschedule'"><div>ایجاد رویداد برنامه هفتگی<img src="{% static './Photos/pen-solid.svg' %}" alt=""></div></button>
+                <button class="AddEvent" onclick="location.href = '/addevent'"><div>ایجاد رویداد روز مشخص<img src="{% static './Photos/pen-solid.svg' %}" alt=""></div></button>
+            </div>
+        </div>
+        <div class="sprtr"></div>
+        <div class="EventShow">
+            <div class="payam">هیچ رویدادی نیست.</div>
+        </div>
+    </div>
+    <div id="ChangingFormParent">
+        <form class="ChangingForm">
+            <input type="number" placeholder="سال" id="ThisYear" max="2000" min="1300">
+            <input type="number" placeholder="ماه" id="ThisMonth" max="12" min="1">
+            <div type="submit" class="submit-btn" onclick="LoadFromThis()">ثــبـت</div>
+            <div type="submit" class="cancel-btn" onclick="HideChangingForm()">انصراف</div>
+        </form>
+    </div> 
+    <script src="{% static 'DateCalendar.js' %}"></script>
+</body>
+</html>

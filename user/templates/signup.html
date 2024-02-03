@@ -1,0 +1,35 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت‌نام</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="register-form">
+        <div>تقویم دانشجویی</div>
+        <div>ثبت‌نام</div>
+
+    {% for msg in messages %}
+        {{msg}}
+        <br>
+    {% endfor %}
+
+        <form method="post" action="{% url 'signup' %}">
+            {% csrf_token %}
+            <input type="text" id="fname" name="fname" placeholder="نام" required><br>
+            <input type="text" id="lname" name="lname" placeholder="نام خانوادگی" required><br>
+            <input type="number" id="StuNum" name="StuNum" placeholder="شماره دانشجویی" max=9999999999 min="1111111111" required><br>
+            <input type="password" id="password" name="password" placeholder="رمز عبور" required><br>
+            <input type="password" id="re_password" name="re_password" placeholder="تکرار رمز عبور" required><br>
+            <input type="submit" class="submit-btn" value="ثبت‌نام">
+        </form>
+        <div class="AccQs">
+            <span>حساب کاربری دارید؟</span>
+            <span>ورود</span>
+        </div>
+    </div>
+</body>
+</html>

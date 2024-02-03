@@ -1,0 +1,52 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>افزودن رویداد</title>
+    <link rel="stylesheet" href="{% static 'style_event.css' %}">
+</head>
+<body>
+    <div class="title">اضافه کردن رویدادهای برنامه درسی</div>
+    <div class="register-form">
+        <form>
+            <div class="select_days">
+                <div>انتخاب روزها</div>
+                <hr>
+                <div class="days_checkbox">
+                    <input type="checkbox" class="checkboxes" id="Day0" value="Day0">
+                    <label for="Day0">شنبه</label>
+                </div>
+                <div class="days_checkbox">
+                    <input type="checkbox" class="checkboxes" id="Day1" value="Day1">
+                    <label for="Day0">یک‌شنبه</label>
+                </div>
+                <div class="days_checkbox">
+                    <input type="checkbox" class="checkboxes" id="Day2" value="Day2">
+                    <label for="Day0">دوشنبه</label>
+                </div>
+                <div class="days_checkbox">
+                    <input type="checkbox" class="checkboxes" id="Day3" value="Day3">
+                    <label for="Day0">سه‌شنبه</label>
+                </div>
+                <div class="days_checkbox">
+                    <input type="checkbox" class="checkboxes" id="Day4" value="Day4">
+                    <label for="Day0">چهارشنبه</label>
+                </div>
+                <div class="days_checkbox">
+                    <input type="checkbox" class="checkboxes" id="Day5" value="Day5">
+                    <label for="Day0">پنج‌شنبه</label>
+                </div>
+                <div class="days_checkbox">
+                    <input type="checkbox" class="checkboxes" id="Day6" value="Day6">
+                    <label for="Day0">جمعه</label>
+                </div>
+            </div>
+            <input type="text" id="StuNum" name="StuNum" placeholder="محتوای رویداد" required><br>
+            <input type="time" id="time" name="time"><br>
+            <input type="submit" class="submit-btn" value="ثبت">
+        </form>
+    </div>
+</body>
+</html>
