@@ -62,6 +62,13 @@
     </div> 
     <script src="{% static 'DateCalendar.js' %}"></script>
     <script>
+        let time=0;
+        var x = setInterval(()=>{
+            if(time===10){
+                location.href = '/';
+            }
+            time++;
+        }, 1000);
         const login_btn = document.getElementById("login_btn");
         login_btn.innerText = ".وارد شوید";
         document.addEventListener("DOMContentLoaded", function () {
@@ -97,7 +104,6 @@
                 }
                 eventbox.appendChild(event);
             });
-            console.log(TodayDate);
         });
 
     </script>

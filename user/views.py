@@ -10,12 +10,12 @@ from django.core import serializers
 
 
 def home(request):
-    try:
+    if myuserobj is not 0:
         usersevent = event.objects.filter(input_username=myuserobj)
         events = serializers.serialize('json', usersevent)
         userdata = dumps(userpass)
         return render(request, 'home.html', {'userdata': userdata, 'events': events})
-    except:
+    else:
         return redirect("http://127.0.0.1:8000")
 
 def success(request):
@@ -57,7 +57,9 @@ def signup(request):
 
 def signin(request):
     global myuserobj
-    myuserobj = None
+    global userpass
+    myuserobj = 0
+    userpass = 0
     if request.method == 'POST':
         username = request.POST.get("StuNum")
         password = request.POST.get("password")
@@ -71,7 +73,6 @@ def signin(request):
             messages.info(request, '.این نام‌کاربری با این رمزعبور همخوانی ندارد')
         else:
             myuserobj = username
-            global userpass
             userpass = dict(fname=user.fname, lname=user.lname, username=user.username)
             return redirect('http://127.0.0.1:8000/home')
     return render(request, 'signin.html')
